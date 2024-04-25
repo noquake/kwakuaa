@@ -5,6 +5,17 @@
     font-family: 'Courier New', monospace;
 }
 
+/* These set the color options for the light and dark mode on the site */
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
 /* will find a couple theme options, guive them names and copy paste the css color codes here, need to find a way to switch the whole site into a certain color scheme using a bunch of while loops*/
 
 .navbar {
