@@ -1,0 +1,64 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: monospace;
+  }
+  
+  .terminal {
+    width: 60%;
+    height: 400px;
+    background-color: #b53737;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .terminal-header {
+    background-color: #4a197e;
+    height: 20px;
+  }
+  
+  .terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .red {
+    background-color: #ff5f56;
+  }
+  
+  .yellow {
+    background-color: #ffbd2e;
+  }
+  
+  .green {
+    background-color: #27c93f;
+  }
+  
+  .terminal-body {
+    padding: 10px;
+    overflow-y: auto;
+    height: calc(100% - 90px);
+  }
+  
+  .terminal-input {
+    background-color: #000;
+    padding: 5px;
+    display: flex;
+  }
+  
+  .terminal-input span {
+    color: #00ff00;
+    margin-right: 5px;
+  }
+  
+  .terminal-input input {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 100%;
+    outline: none;
+  }
+  
