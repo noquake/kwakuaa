@@ -5,7 +5,7 @@ body {
   }
   
   .terminal {
-    width: 60%;
+    width: 100%;
     height: 400px;
     background-color: #b53737;
     overflow: hidden;
@@ -24,27 +24,18 @@ body {
     display: inline-block;
     margin-right: 5px;
   }
-  
-  .red {
-    background-color: #ff5f56;
-  }
-  
-  .yellow {
-    background-color: #ffbd2e;
-  }
-  
-  .green {
-    background-color: #27c93f;
-  }
-  
+
+
   .terminal-body {
-    padding: 10px;
+    padding: 90px;
     overflow-y: auto;
     height: calc(100% - 90px);
   }
   
-  .terminal-input {
-    background-color: #000;
+  .terminal-input {  /* this is the entire input line of the terminal itself, should be the same color as the .terminal */
+    background-color: #4a197e;
+    align-self: last baseline;
+    align-items: last baseline;
     padding: 5px;
     display: flex;
   }
@@ -56,9 +47,16 @@ body {
   
   .terminal-input input {
     background-color: transparent;
+    display: flex;
+    align-items: center;
     border: none;
     color: #fff;
     width: 100%;
     outline: none;
   }
+  
+  .terminal-prompt {
+    margin-right: 5px; /* Add a small margin for spacing */
+  }
+  
   
