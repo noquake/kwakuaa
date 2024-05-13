@@ -16,20 +16,15 @@ body {
     background-color: #4a197e;
     height: 20px;
   }
-  
-  .terminal-button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 5px;
-  }
 
+  .terminal-output {
+    align-self: baseline;
+  }
 
   .terminal-body {
     padding: 90px;
     overflow-y: auto;
-    height: calc(100% - 90px);
+    height: calc(70% - 90px);
   }
   
   .terminal-input {  /* this is the entire input line of the terminal itself, should be the same color as the .terminal */
@@ -58,5 +53,9 @@ body {
   .terminal-prompt {
     margin-right: 5px; /* Add a small margin for spacing */
   }
-  
+
+  .terminal-container {
+    display: flex; /* Allow flexbox for horizontal arrangement */
+    flex-direction: column; /* Stack elements vertically */
+  }
   
