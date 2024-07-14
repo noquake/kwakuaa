@@ -1,2 +1,2 @@
 # kwaagyei.
- personal site
+ personal site project
