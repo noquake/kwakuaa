@@ -36,7 +36,7 @@
   color: #ffffff;
 }
 
-.container {
+.main__container {
   left: 20%; /* Move the container 30% to the right */
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -47,11 +47,21 @@
   position: relative; /* Use relative positioning for positioning */
 }
 
-.container p {
+.main__container p {
   color: #560800;
   /* color: #fbf1c7; */
 
   font-size: 0.75rem;
+}
+
+.ascii__container {
+  max-width: 60%; /* Adjust according to your layout */
+  margin: 0 auto; /* Center the container horizontally */
+  position: relative; /* Use relative positioning for positioning */
+}
+
+.ascii__container pre {
+  font: monospace;
 }
 
 .navbar__quote {
@@ -84,9 +94,8 @@
   display: flex;
   justify-content: space-between;
   height: 40px;
-  z-index: 1;
+  /* z-index: 1; */
   width: 100%;
-
   padding: 0 60px;
 }
 
@@ -103,18 +112,18 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-
+  /* z-index: 999; */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0rem;
   width: 100%;
 }
 
 .navbar__links {
   color: #560800;
   display: flex;
-  margin: 2.5rem;
+  /* margin: 2.5rem; */
+  margin: 1rem;
   align-items: center;
   justify-content: center;
   text-decoration: none;
