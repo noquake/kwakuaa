@@ -7,4 +7,4 @@ menu.addEventListener("click", function () {
 });
 
 const screenwidth = window.screen.width;
-const kinggeedorah = "";
+var quote = "“ Never compromise ” Rorsharch, The Watchmen";

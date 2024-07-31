@@ -21,47 +21,129 @@
   margin: 0rem;
   padding: 0rem;
   font-family: "monoid";
-  background-color: #ffd3a1;
-  /* background-color: #340400; */
+  /* background-color: #ffd3a1; */
+  background-color: #28002d;
 }
 
 /* These set the color options for the light and dark mode on the site */
 .light {
-  background-color: purple;
-  color: #000000;
+  background-color: #ffd3a1;
+  color: #560800;
 }
 
 .dark {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: #28002d;
+  color: #ffd3a1;
 }
 
+a {
+  /* color: #560800; */
+  color: #fbf1c7;
+  /* border-bottom: 1px solid #560800; */
+}
+
+.contact__page__description {
+  /* color: #560800; */
+  color: #fbf1c7;
+  font-size: 1rem;
+  align-self: center;
+  text-align: left;
+  padding: 3.75rem;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.ongoing__page__description {
+  /* color: #560800; */
+  color: #fbf1c7;
+  font-size: 1rem;
+  align-self: center;
+  text-align: center;
+  padding: 3.75rem;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.ongoing__time {
+  /* color: #560800; */
+  color: #fbf1c7;
+  width: 75%;
+  float: left;
+  font-size: 1.5rem;
+  margin-left: 15%;
+  border-bottom: 1px solid #fbf1c7;
+  padding-top: 2.5rem;
+}
+
+.ongoing__event {
+  /* color: #560800; */
+  color: #fbf1c7;
+  width: 75%;
+  float: left;
+  font-size: 1rem;
+  margin-left: 15%;
+  padding-top: 1.75rem;
+}
+.ongoing__book {
+  /* color: #7d1e13; */
+  color: #ffd3a1;
+  width: 75%;
+  float: left;
+  font-size: 0.75rem;
+  margin-left: 15%;
+  padding-top: 1.75rem;
+}
+
+.ongoing__description {
+  /* color: #7d1e13; */
+  color: #ffd3a1;
+  width: 75%;
+  float: left;
+  font-size: 0.75rem;
+  margin-left: 15%;
+  padding-top: 0.75rem;
+
+  word-wrap: break-word; /* Legacy property */
+  overflow-wrap: break-word; /* Recommended property */
+}
 .main__container {
-  left: 20%; /* Move the container 30% to the right */
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  float: left;
+  display: inline;
+
   padding: 2.5rem;
-  padding-top: 20%; /* Add top padding of 50px */
   max-width: 60%; /* Adjust according to your layout */
-  margin: 0 auto; /* Center the container horizontally */
+  width: 60%;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
   position: relative; /* Use relative positioning for positioning */
+  align-items: center; /* Center vertically */
+  text-align: left; /* Center text horizontally within box */
+  justify-content: center; /* Center horizontally */
+  padding-top: 15%;
 }
 
 .main__container p {
-  color: #560800;
-  /* color: #fbf1c7; */
-
-  font-size: 0.75rem;
+  /* color: #560800; */
+  color: #fbf1c7;
+  font-size: 0.85rem;
 }
 
 .ascii__container {
-  max-width: 60%; /* Adjust according to your layout */
-  margin: 0 auto; /* Center the container horizontally */
+  float: left;
+  display: inline;
+
+  max-width: 40%; /* Adjust according to your layout */
+  padding-top: 0.75rem; /* Center the container horizontally */
   position: relative; /* Use relative positioning for positioning */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text horizontally within box */
+  justify-content: center; /* Center horizontally */
 }
 
 .ascii__container pre {
-  font: monospace;
+  /* color: #560800; */
+  color: #fbf1c7;
+  font-size: 0.5rem;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .navbar__quote {
@@ -76,9 +158,11 @@
 .navbar__quote p {
   font-family: "monoid-italic";
   margin: 0; /* Remove default margin of <p> */
-  color: #560800;
+  /* color: #560800; */
+  color: #fbf1c7;
   font-size: 0.75rem;
 }
+
 .navbar {
   background: #120ba3;
   height: 40px;
@@ -109,6 +193,7 @@
 }
 
 .navbar__item {
+  text-decoration: none;
   align-items: center;
   justify-content: center;
   height: 40px;
@@ -119,19 +204,44 @@
   width: 100%;
 }
 
+.version__container {
+  /* color: #560800; */
+  color: #fbf1c7;
+  display: flex;
+  height: 40px;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text horizontally within box */
+
+  padding: 1.75rem; /* Optional: Add padding for better spacing */
+
+  position: absolute;
+  bottom: 0;
+  right: 0; /* Align container to the right */
+  font-size: 0.5rem;
+}
+
+.version p {
+  font-family: "monoid-bold";
+  margin: 0; /* Remove default margin of <p> */
+  /* color: #560800; */
+  color: #fbf1c7;
+}
+
 .navbar__links {
-  color: #560800;
+  text-decoration: none; /* color: #560800; */
+  color: #fbf1c7;
   display: flex;
   /* margin: 2.5rem; */
   margin: 1rem;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
 }
 
 .navbar__links:hover {
   color: #fff;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 960px) {
