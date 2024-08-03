@@ -16,6 +16,15 @@
   font-weight: normal;
 }
 
+:root {
+  --clr-light-prim: hsl(32 100 82);
+  --clr-purple: hsl(293, 100, 9);
+  --clr-dark-prim: hsl(20 2 22);
+  --clr-burg: hsl(6 100 17);
+  --clr-light-sec: hsl(48 87 88);
+  --clr-orange: hsl(21 97 35);
+}
+
 * {
   box-sizing: border-box;
   margin: 0rem;
@@ -199,8 +208,6 @@ a {
   height: 40px;
   /* z-index: 999; */
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -242,6 +249,38 @@ a {
   color: #fff;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+
+.color__picker > fieldset {
+  border: 0;
+  display: flex;
+  gap: 2.58prem;
+  width: fit-content;
+  background: #fff;
+  padding: 1rem;
+  margin-inline: auto;
+  border-radius: 0 0 1rem 1rem;
+  justify-content: center; /* Center horizontally */
+  position: fixed; /* Use fixed positioning to stay at the bottom of the viewport */
+  left: 50%; /* Position horizontally at the center */
+  bottom: 0; /* Stick to the bottom of the viewport */
+  transform: translateX(-50%); /* Offset by half its own width to center it */
+}
+
+.color__picker input[type="radio"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid var(--radio-color, currentColor);
+  border-radius: 50%;
+}
+
+.color-picker input[type="radio"]:checked {
+  background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#purple {
+  --radio-color: white;
 }
 
 @media screen and (max-width: 960px) {
