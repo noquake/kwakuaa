@@ -42,6 +42,24 @@ a {
   /* border-bottom: 1px solid #560800; */
 }
 
+
+.version__text {
+  /* color: #560800; */
+  color: #fbf1c7;
+  float: left;
+  display: block;
+  top: 12%;
+  left: 40%;
+  font-size: 0.75rem;
+
+  max-width: 60%; /* Adjust according to your layout */
+  width: 60%;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  position: absolute; /* Use relative positioning for positioning */
+  text-align: left; /* Center text horizontally within box */
+  padding-top: 5%;
+}
+
 .contact__page__description {
   /* color: #560800; */
   color: #fbf1c7;
