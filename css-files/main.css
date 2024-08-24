@@ -51,24 +51,6 @@ a {
   /* border-bottom: 1px solid #560800; */
 }
 
-
-.version__text {
-  /* color: #560800; */
-  color: #fbf1c7;
-  float: left;
-  display: block;
-  top: 12%;
-  left: 40%;
-  font-size: 0.75rem;
-
-  max-width: 60%; /* Adjust according to your layout */
-  width: 60%;
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
-  position: absolute; /* Use relative positioning for positioning */
-  text-align: left; /* Center text horizontally within box */
-  padding-top: 5%;
-}
-
 .contact__page__description {
   /* color: #560800; */
   color: #fbf1c7;
@@ -133,6 +115,7 @@ a {
   word-wrap: break-word; /* Legacy property */
   overflow-wrap: break-word; /* Recommended property */
 }
+
 .main__container {
   float: left;
   display: inline;
@@ -140,12 +123,12 @@ a {
   padding: 2.5rem;
   max-width: 60%; /* Adjust according to your layout */
   width: 60%;
+  top: 30%;
   box-sizing: border-box; /* Ensure padding doesn't affect width */
-  position: relative; /* Use relative positioning for positioning */
+  position: absolute; /* Use relative positioning for positioning */
   align-items: center; /* Center vertically */
   text-align: left; /* Center text horizontally within box */
   justify-content: center; /* Center horizontally */
-  padding-top: 15%;
 }
 
 .main__container p {
@@ -227,6 +210,15 @@ a {
   /* z-index: 999; */
   display: flex;
   width: 100%;
+}
+
+.network__logo {
+  top: 55%;
+  left: 59%;
+  max-width: 10%;
+  position: absolute;
+  justify-content: center;
+  align-self: center;
 }
 
 .version__container {
