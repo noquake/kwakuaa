@@ -1,4 +1,4 @@
-# kwaagyei
+# kwakuaa
 My personal portfolio website. Current domain: https://kwaku-agyei.org/
 
 ## Description
