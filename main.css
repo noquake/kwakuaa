@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "freemono";
+    src: url(/fonts/FreeMono.ttf), format(truetype);
+    font-weight: normal;
+  }
+@font-face {
+    font-family: "freemono-oblique";
+    src: url(/fonts/FreeMonoOblique.ttf), format(truetype);
+    font-weight: normal;
+}
+@font-face {
+    font-family: "freemono-bold";
+    src: url(/fonts/FreeMonoBold.ttf), format(truetype);
+    font-weight: normal;
+  } 
+@font-face {
+    font-family: "freemono";
+    src: url(/fonts/FreeMono.ttf), format(truetype);
+    font-weight: normal;
+}
+
+html[data-theme="light"] {
+    --bg-primary: #d3bcc0;
+    --bg-secondary: #e4e0e1; 
+    --fg-primary: #493628;
+    --fg-secondary: #95735a; 
+    --link-primary: #320d6d;
+    --link-hover: #3a6ea5;
+    --table-text: #191715;
+  }
+
+  html[data-theme="dark"] {
+    --bg-primary: #270722;
+    --bg-secondary: #6c4454; 
+    --fg-primary: #FFAB2D;
+    --fg-secondary: #FFC743;  
+    --link-primary: #405861;
+    --link-hover: #677679;
+  }
+
+/* config for the entire site */
+* {
+    font-family: "freemono"
+}
+
+.sidebar p {
+text-align: center;
+}
+
+.content h1 {
+
+}
+
+.content h2 {
+
+}
+
+.content h3 {
+    color: #aaa; 
+    font-style: "freemoono-oblique";
+}
+
+.content h4 {
+
+}
+
+a clear {
+    
+}
