@@ -1,21 +1,21 @@
 @font-face {
     font-family: "freemono";
-    src: url(/fonts/FreeMono.ttf), format(truetype);
+    src: url(../assets/FreeMono.ttf), format(truetype);
     font-weight: normal;
   }
 @font-face {
     font-family: "freemono-oblique";
-    src: url(/fonts/FreeMonoOblique.ttf), format(truetype);
+    src: url(../assets/FreeMonoOblique.ttf), format(truetype);
     font-weight: normal;
 }
 @font-face {
     font-family: "freemono-bold";
-    src: url(/fonts/FreeMonoBold.ttf), format(truetype);
+    src: url(../assets/FreeMonoBold.ttf), format(truetype);
     font-weight: normal;
   } 
 @font-face {
     font-family: "freemono-boldoblique";
-    src: url(/fonts/FreeMonoBoldOblique.ttf), format(truetype);
+    src: url(../assets/FreeMonoBoldOblique.ttf), format(truetype);
     font-weight: normal;
 }
 
