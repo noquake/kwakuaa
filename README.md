@@ -9,3 +9,7 @@ This is the source-code for my personal website built from scratch using HTML, J
 - Branch seperation to work on features over time before deployment to main site/branch
 - Randomized quote picker
 - Better "about me" blurb
+
+to run the docker container 
+docker pull 
+docker run --name kwakuaa --rm -d -p 9000:80 kwaku:0.9.4
