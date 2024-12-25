@@ -29,8 +29,7 @@
 :root {
   --bg-primary: #fff8f3;
   --bg-secondary: #e3e0e1;
-  --fg-primary: #3d3010;
-  --fg-primary: #95735a;
+  --fg-primary: #74560a;
 }
 
 html[data-theme="light"] {
