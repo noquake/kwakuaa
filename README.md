@@ -1,4 +1,4 @@
-# Project "Kwaku AA"
+# Kwaku AA
 
 This repo holds the source-code for my portfolio website built using HTML, JavaScript, and CSS. The site is currently hosted using Github-Pages, a free webhosting feature on Github and Gitlab. Using Cloudflare to proxy my custom domain, [kwaku-agyei.org](kwaku-agyei.org), to the one originally provided via Github Pages. 
 
