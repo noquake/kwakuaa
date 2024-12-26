@@ -1,6 +1,6 @@
 # Project "Kwaku AA"
 
-This repo holds the source-code for my portfolio website built using HTML, JavaScript, and CSS. The site is currently hosted using Github-Pages, a free webhosting feature on Github and Gitlab. Using Cloudflare to proxy my custom domain, kwaku-agyei.org[kwaku-agyei.org], to the one originally provided via Github Pages. 
+This repo holds the source-code for my portfolio website built using HTML, JavaScript, and CSS. The site is currently hosted using Github-Pages, a free webhosting feature on Github and Gitlab. Using Cloudflare to proxy my custom domain, [kwaku-agyei.org](kwaku-agyei.org), to the one originally provided via Github Pages. 
 
 To host on Github Pages, it is required to deploy directly from a branch unless using a custom deployment action. Since I don't know how to do the latter yet, the branch "pages" is devoted to hosting the site code, while the main branch is being developed. 
 
