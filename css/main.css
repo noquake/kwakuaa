@@ -75,6 +75,11 @@ a:hover {
   color: var(--fg-secondary);
 }
 
+.fav-book{
+  font-family: "freemono-oblique";
+  color: var(--fg-secondary);
+}
+
 .clear {
     text-decoration: none;
     color: var(--fg-primary);
