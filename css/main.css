@@ -19,34 +19,12 @@
     font-weight: normal;
 }
 
-#theme_select div:nth-child(1) label {
-  background-color: #fff8f3;
-}
-#theme_select div:nth-child(2) label {
-  background-color: #610c3d;
-} 
-
 :root {
-  --bg-primary: #fff8f3;
-  --bg-secondary: #e3e0e1;
-  --fg-primary: #3d3010;
-  --fg-primary: #95735a;
+  --bg-primary: #39321a;
+  --bg-secondary: #4c4631;
+  --fg-primary: #e7dfc6;
+  --fg-secondary: #cec8b3;
 }
-
-html[data-theme="light"] {
-    --bg-primary: #fff8f3;
-    --bg-secondary: #e4e0e1; 
-    --fg-primary: #3d3010;
-    --fg-secondary: #95735a; 
-    /* 560022 */
-    } 
-
-  html[data-theme="dark"] {
-    --bg-primary: #270722;
-    --bg-secondary: #6a5634; 
-    --fg-primary: #FFAB2D;
-    --fg-secondary: #FFC743;  
-  }
 
 /* config for the entire site */
 * {
@@ -73,7 +51,12 @@ a:hover {
 
 .book {
   font-family: "freemono-oblique";
-  color: var(--fg-secondary);
+  color: #c9a0d4;
+}
+
+.fav-book{
+  font-family: "freemono-oblique";
+  color: #c9a0d4;
 }
 
 .clear {
