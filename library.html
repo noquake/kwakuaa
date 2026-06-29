@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Library — Kwaku A. Agyapong</title>
+		<link rel="stylesheet" href="css/main.css" />
+		<script src="js-files/main.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar">
+			<div class="navbar-container">
+				<li class="navbar-item">
+					<a href="index.html" class="clear">home</a>
+				</li>
+				<li class="navbar-item">
+					<a href="resume.pdf" target="_blank" class="clear">resume</a>
+				</li>
+				<li class="navbar-item">
+					<a href="library.html" class="clear">library</a>
+				</li>
+			</div>
+		</nav>
+
+		<div class="quote">
+			<p></p>
+		</div>
+
+		<nav class="sidebar">
+			<h2 class="sidebar-title">Links</h2>
+			<p>
+				<a class="clear" target="_blank" href="mailto:kwakuagyapong478@gmail.com">Email</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://cal.com/kwaku">Cal.com</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://www.linkedin.com/in/kwakuaagyapong/">LinkedIn</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://gitlab.com/noquake">Gitlab</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://github.com/noquake">Github</a>
+			</p>
+		</nav>
+
+		<div class="content">
+			<h1>Library</h1>
+
+			<p>
+				This is my personal library, catalogued and managed through a self-hosted
+				<a class="bright-link" target="_blank" href="https://koha-community.org/">Koha</a>
+				instance. The collection is made up of books I own, things I've read,
+				things I plan to read, and things worth keeping around.
+			</p>
+
+			<hr />
+
+			<h2>Borrowing</h2>
+
+			<p>
+				If you'd like to borrow something, reach out with your name, email
+				address, and phone number and I'll create a library account for you.
+				You can contact me at kwakuagyapong478[at]gmail.com
+			</p>
+
+			<br />
+
+			<h2>Catalogue</h2>
+
+			<p>
+				Browse the full collection at
+				<a class="bright-link" target="_blank" href="https://nyansape.kwakuaa.com">nyansape.kwakuaa.com</a>.
+			</p>
+
+			<br />
+
+			<h2>Authors</h2>
+
+			<div class="sort-controls">
+				<span>sort:</span>
+				<button class="sort-btn active" data-sort="alpha">a–z</button> / 
+				<button class="sort-btn" data-sort="recent">most recent</button> / 
+				<button class="sort-btn" data-sort="oldest">oldest</button>
+			</div>
+
+			<div class="author-grid" id="author-grid"></div>
+		</div>
+
+		<script>
+		const authors = [
+			{ name: "Siobhan Adcock",          slug: "siobhan-adcock",           lastRead: 202501 },
+			{ name: "Brian W. Aldiss",          slug: "brian-aldiss",             lastRead: 202405 },
+			{ name: "Anne Lamott",              slug: null,                        lastRead: 202512 },
+			{ name: "Paul Auster",              slug: null,                        lastRead: 202603 },
+			{ name: "James Baldwin",            slug: "james-baldwin",            lastRead: 202502 },
+			{ name: "Dan Brown",                slug: null,                        lastRead: 202408 },
+			{ name: "Samuel Butler",            slug: null,                        lastRead: 202409 },
+			{ name: "Orson Scott Card",         slug: "orson-scott-card",         lastRead: 202512 },
+			{ name: "Stephen Chbosky",          slug: "stephen-chbosky",          lastRead: 202108 },
+			{ name: "Agatha Christie",          slug: "agatha-christie",          lastRead: 202205 },
+			{ name: "Paulo Coelho",             slug: "paulo-coelho",             lastRead: 202301 },
+			{ name: "Michael Crichton",         slug: "michael-crichton",         lastRead: 202207 },
+			{ name: "Roald Dahl",               slug: "roald-dahl",               lastRead: 202502 },
+			{ name: "Kate DiCamillo",           slug: "kate-dicamillo",           lastRead: 202406 },
+			{ name: "Fyodor Dostoevsky",        slug: "fyodor-dostoevsky",        lastRead: 202408 },
+			{ name: "Alexandre Dumas",          slug: "alexandre-dumas",          lastRead: 202503 },
+			{ name: "Harlan Ellison",           slug: "harlan-ellison",           lastRead: 202504 },
+			{ name: "F. Scott Fitzgerald",      slug: "f-scott-fitzgerald",       lastRead: 202502 },
+			{ name: "Charlotte Perkins Gilman", slug: "charlotte-perkins-gilman", lastRead: 202502 },
+			{ name: "William Golding",          slug: "william-golding",          lastRead: 202208 },
+			{ name: "Adam Grant",               slug: "adam-grant",               lastRead: 202207 },
+			{ name: "Joe Haldeman",             slug: null,                        lastRead: 202512 },
+			{ name: "Ernest Hemingway",         slug: "ernest-hemingway",         lastRead: 202412 },
+			{ name: "Frank Herbert",            slug: "frank-herbert",            lastRead: 202402 },
+			{ name: "Hermann Hesse",            slug: "herman-hesse",             lastRead: 202510 },
+			{ name: "Carl Hiaasen",             slug: "carl-hiaasen",             lastRead: 202401 },
+			{ name: "Khaled Hosseini",          slug: "khaled-hosseini",          lastRead: 202407 },
+			{ name: "Gregory Jaczko",           slug: "gregory-jaczko",           lastRead: 202506 },
+			{ name: "P.D. James",               slug: "pd-james",                 lastRead: 202407 },
+			{ name: "Immanuel Kant",            slug: "immanuel-kant",            lastRead: 202407 },
+			{ name: "Ken Kesey",                slug: null,                        lastRead: 202602 },
+			{ name: "Robert Kirkman",           slug: "robert-kirkman",           lastRead: 202503 },
+			{ name: "Richard Koch",             slug: "richard-koch",             lastRead: 202407 },
+			{ name: "Danya Kukafka",            slug: null,                        lastRead: 202506 },
+			{ name: "Madeleine L'Engle",        slug: null,                        lastRead: 202506 },
+			{ name: "Cormac McCarthy",          slug: null,                        lastRead: 202602 },
+			{ name: "Sarah Thankam Matthews",   slug: null,                        lastRead: 202602 },
+			{ name: "Haruki Murakami",          slug: "haruki-murakami",          lastRead: 202502 },
+			{ name: "Celeste Ng",               slug: "celeste-ng",               lastRead: 202212 },
+			{ name: "Alissa Nutting",           slug: "alissa-nutting",           lastRead: 202208 },
+			{ name: "Mario Puzo",               slug: "mario-puzo",               lastRead: 202503 },
+			{ name: "Erich Maria Remarque",     slug: "erich-maria-remarque",     lastRead: 202408 },
+			{ name: "Daniel Smith",             slug: "daniel-smith",             lastRead: null   },
+			{ name: "John Steinbeck",           slug: "john-steinbeck",           lastRead: 202501 },
+			{ name: "Laini Taylor",             slug: "laini-taylor",             lastRead: 202107 },
+			{ name: "J.R.R. Tolkien",           slug: "jrr-tolkien",              lastRead: 202412 },
+			{ name: "Dorothy West",             slug: null,                        lastRead: 202506 },
+			{ name: "H.G. Wells",               slug: "hg-wells",                 lastRead: 202502 },
+			{ name: "Gene Kim",                 slug: null,                        lastRead: 202405 },
+			{ name: "Harper Lee",               slug: null,                        lastRead: 202606 },
+			{ name: "Jennette McCurdy",         slug: null,                        lastRead: 202605 },
+			{ name: "Uzodinma Iweala",          slug: null,                        lastRead: 202606 },
+			{ name: "Hernan Diaz",              slug: null,                        lastRead: 202606 },
+		];
+
+		function lastName(name) {
+			const parts = name.trim().split(/\s+/);
+			return parts[parts.length - 1];
+		}
+
+		function renderGrid(list) {
+			const grid = document.getElementById('author-grid');
+			grid.innerHTML = list.map(a => {
+				if (a.slug) {
+					return `<div class="author-card"><a class="clear" href="authors/${a.slug}.html">${a.name}</a></div>`;
+				}
+				return `<div class="author-card no-page">${a.name}</div>`;
+			}).join('');
+		}
+
+		function sortAndRender(type) {
+			const list = [...new Map(authors.map(a => [a.name, a])).values()];
+			if (type === 'alpha') {
+				list.sort((a, b) => lastName(a.name).localeCompare(lastName(b.name)));
+			} else if (type === 'recent') {
+				list.sort((a, b) => {
+					if (!a.lastRead && !b.lastRead) return lastName(a.name).localeCompare(lastName(b.name));
+					if (!a.lastRead) return 1;
+					if (!b.lastRead) return -1;
+					return b.lastRead - a.lastRead;
+				});
+			} else {
+				list.sort((a, b) => {
+					if (!a.lastRead && !b.lastRead) return lastName(a.name).localeCompare(lastName(b.name));
+					if (!a.lastRead) return 1;
+					if (!b.lastRead) return -1;
+					return a.lastRead - b.lastRead;
+				});
+			}
+			renderGrid(list);
+		}
+
+		document.querySelectorAll('.sort-btn').forEach(btn => {
+			btn.addEventListener('click', () => {
+				document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+				sortAndRender(btn.dataset.sort);
+			});
+		});
+
+		sortAndRender('alpha');
+		</script>
+
+		<div class="footer">
+			<div class="theme-toggle-container">
+				<div id="theme_select">
+					<div>
+						<input type="radio" name="theme" id="theme-warm" value="warm">
+						<label for="theme-warm" title="Warm"></label>
+					</div>
+					<div>
+						<input type="radio" name="theme" id="theme-pale" value="pale">
+						<label for="theme-pale" title="Pale"></label>
+					</div>
+<div>
+						<input type="radio" name="theme" id="theme-gruvbox" value="gruvbox">
+						<label for="theme-gruvbox" title="Gruvbox"></label>
+					</div>
+				</div>
+			</div>
+			<p><a class="clear" href="https://github.com/noquake/kwakuaa">source code</a></p>
+		</div>
+	</body>
+</html>

@@ -99,9 +99,34 @@ function getQuote() {
   return quotes[stored.idx];
 }
 
+function applyTheme(theme) {
+  document.body.dataset.theme = theme;
+  const radio = document.getElementById(`theme-${theme}`);
+  if (radio) radio.checked = true;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const el = document.querySelector(".quote p");
-  if (!el) return;
-  const { q, s } = getQuote();
-  el.textContent = s ? `"${q}" — ${s}` : `"${q}"`;
+  if (el) {
+    const { q, s } = getQuote();
+    el.textContent = s ? `"${q}" — ${s}` : `"${q}"`;
+  }
+
+  applyTheme(localStorage.getItem("theme") || "warm");
+
+  document.querySelectorAll('input[name="theme"]').forEach(radio => {
+    radio.addEventListener("change", () => {
+      localStorage.setItem("theme", radio.value);
+      applyTheme(radio.value);
+    });
+  });
+
+  document.querySelectorAll(".content a[href]").forEach(link => {
+    link.target = "_blank";
+  });
+
+  const currentYear = new Date().getFullYear().toString();
+  document.querySelectorAll(".content h3").forEach(h3 => {
+    if (h3.textContent.trim() === currentYear) h3.classList.add("current-year");
+  });
 });

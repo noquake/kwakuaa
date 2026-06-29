@@ -19,11 +19,27 @@
     font-weight: normal;
 }
 
-:root {
+:root,
+[data-theme="warm"] {
   --bg-primary: #39321a;
   --bg-secondary: #4c4631;
   --fg-primary: #e7dfc6;
   --fg-secondary: #cec8b3;
+}
+
+[data-theme="pale"] {
+  --bg-primary: #f2ece0;
+  --bg-secondary: #e4dcd0;
+  --fg-primary: #2a2018;
+  --fg-secondary: #5a4a38;
+}
+
+
+[data-theme="gruvbox"] {
+  --bg-primary: #282828;
+  --bg-secondary: #3c3836;
+  --fg-primary: #ebdbb2;
+  --fg-secondary: #d5c4a1;
 }
 
 /* config for the entire site */
@@ -49,14 +65,83 @@ a:hover {
   text-decoration: underline;
 }
 
+.bright-link {
+  color: #c9a0d4;
+  text-decoration: none;
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.author-card {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--fg-secondary);
+  font-size: 0.85rem;
+}
+
+.author-card.no-page {
+  opacity: 0.45;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--fg-secondary);
+}
+
+.sort-btn {
+  background: none;
+  border: none;
+  color: var(--fg-secondary);
+  cursor: pointer;
+  font-family: "freemono";
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.sort-btn.active {
+  color: var(--fg-primary);
+  text-decoration: underline;
+}
+
+.author-year {
+  font-family: "freemono";
+  font-size: 0.85em;
+  color: var(--fg-secondary);
+}
+
 .book {
   font-family: "freemono-oblique";
   color: #c9a0d4;
 }
 
-.fav-book{
+.book a {
+  color: inherit;
+}
+
+.fav-book {
   font-family: "freemono-oblique";
   color: #c9a0d4;
+}
+
+.fav-book a {
+  color: inherit;
+}
+
+.milestone {
+  font-family: "freemono-bold";
+  color: #f0d060;
+}
+
+.award {
+  font-family: "freemono-bold";
+  color: #d4a840;
 }
 
 .clear {
@@ -87,9 +172,10 @@ a:hover {
 }
 
 .navbar-container {
-  background-color: var(--bg-primary); 
+  background-color: var(--bg-primary);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 3rem;
   width: 100%;
   height: 40px;
   padding: 0 40px;
@@ -101,7 +187,6 @@ a:hover {
   color: var(--bg-primary);
   justify-content: center;
   display: flex;
-  width: 100%;
 }
 
 .sidebar {
@@ -129,7 +214,6 @@ a:hover {
   width: 60%;
   max-width: 1200px;
   justify-content: center;
-  overflow-y: auto;
   padding: 0px;
   padding-top: 2.5%;
   margin: 0 auto;
@@ -138,10 +222,26 @@ a:hover {
   padding-bottom: 10rem;
 }
 
+.content h3.current-year {
+  font-family: "freemono-bold";
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
 .content h3 {
-    color: var(--fg-primary); 
+    color: var(--fg-primary);
     font-family: "freemono-oblique";
+    font-size: 18px;
     font-size: 18;
+    position: sticky;
+    top: 40px;
+    background-color: var(--bg-primary);
+    padding: 4px 0;
+    z-index: 10;
 }
 
 .footer {
@@ -154,6 +254,7 @@ a:hover {
   box-sizing: border-box;
   text-align: right;
   display: inline-block;
+  font-size: 0.75rem;
 }
 
 .theme-toggle-container {
@@ -181,25 +282,38 @@ a:hover {
 #theme_select {
   display: flex;
   align-items: center;
-  width: 90px;
+  gap: 0.5rem;
+  width: auto;
   margin: auto;
 }
+
+#theme_select div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0;
+}
+
 #theme_select input[type="radio"] {
   display: none;
 }
 
 #theme_select label {
-  width: 25px;
-  height: 25px;
-  background: #ccc; /* Default background no one's ever going to see */
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: outline 0.15s ease;
+  border: 1px solid var(--fg-secondary);
 }
 
+label[for="theme-warm"]    { background: #39321a; }
+label[for="theme-pale"]    { background: #f2ece0; }
+label[for="theme-gruvbox"] { background: #282828; }
+
 #theme_select input[type="radio"]:checked + label {
-  /* outline: 2px solid var(--fg-primary); */
-  outline: 2px solid rgba(116, 72, 167, 0.623);
+  outline: 2px solid var(--fg-primary);
+  outline-offset: 2px;
 }
 
 
