@@ -1,7 +1,7 @@
 services:
   caddy:
     build: .
-    image: noquake/kwakuaa:2026.06.0
+    image: kwaagyei/kwakuaa:2026.06.0
     restart: unless-stopped
     ports:
       - "80:80"
