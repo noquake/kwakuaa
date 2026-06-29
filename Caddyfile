@@ -1,0 +1,10 @@
+{$SITE_ADDRESS:localhost} {
+    root * /srv
+    file_server
+    encode gzip
+
+    # future backend (JS/Python terminal app):
+    # handle /terminal* {
+    #     reverse_proxy backend:8000
+    # }
+}

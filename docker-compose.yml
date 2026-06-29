@@ -1,0 +1,18 @@
+services:
+  caddy:
+    build: .
+    image: noquake/kwakuaa:2026.06.0
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      - SITE_ADDRESS=kwakuaa.com
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
