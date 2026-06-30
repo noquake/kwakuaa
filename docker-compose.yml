@@ -1,11 +1,13 @@
 services:
   kwakuaa:
-    image: kwaagyei/kwakuaa:2026.06.1
+    build: .
     container_name: kwakuaa
     restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
+    environment:
+      - SITE_ADDRESS=${SITE_ADDRESS}
     volumes:
       - caddy_data:/data        # persists Caddy's TLS certs across restarts
       - caddy_config:/config
