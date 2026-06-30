@@ -45,3 +45,6 @@ This personal site has served as an introduction to web-hosting, domain configur
 **Client:** HTML, CSS, & JAVASCRIPT
 
 **Server:** [Docker](https://docs.docker.com/), [RancherOS (VM)](https://rancher.com/docs/os/v1.x/en/), [Proxmox VE](https://pve.proxmox.com/pve-docs/pve-admin-guide.htm), [Nginx Proxy Manager](https://nginxproxymanager.com/), [Cloudflare](https://dash.cloudflare.com)
+
+
+#testing repo mirroring*

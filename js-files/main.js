@@ -109,7 +109,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const el = document.querySelector(".quote p");
   if (el) {
     const { q, s } = getQuote();
-    el.textContent = s ? `"${q}" — ${s}` : `"${q}"`;
+
+    const qtSpan = document.createElement("span");
+    qtSpan.textContent = `"${q}"`;
+    el.appendChild(qtSpan);
+
+    if (s) {
+      const qaSpan = document.createElement("span");
+      qaSpan.className = "qa";
+      qaSpan.textContent = ` — ${s}`;
+      el.appendChild(qaSpan);
+
+      el.style.cursor = "pointer";
+
+      let hideTimer = null;
+      const show = (ms) => {
+        clearTimeout(hideTimer);
+        qaSpan.classList.add("show");
+        hideTimer = setTimeout(() => qaSpan.classList.remove("show"), ms);
+      };
+
+      el.addEventListener("mouseenter", () => show(5000));
+      el.addEventListener("click", () => show(10000));
+    }
   }
 
   applyTheme(localStorage.getItem("theme") || "warm");

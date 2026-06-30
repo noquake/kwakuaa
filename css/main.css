@@ -25,21 +25,29 @@
   --bg-secondary: #4c4631;
   --fg-primary: #e7dfc6;
   --fg-secondary: #cec8b3;
+  --color-book: #c9a0d4;
+  --color-milestone: #f0d060;
+  --color-award: #d4a840;
 }
 
 [data-theme="pale"] {
-  --bg-primary: #f2ece0;
-  --bg-secondary: #e4dcd0;
-  --fg-primary: #2a2018;
-  --fg-secondary: #5a4a38;
+  --bg-primary: #d4ccb8;
+  --bg-secondary: #c4bcaa;
+  --fg-primary: #1a1408;
+  --fg-secondary: #3a3020;
+  --color-book: #6b3a9a;
+  --color-milestone: #7a6200;
+  --color-award: #6b4a00;
 }
-
 
 [data-theme="gruvbox"] {
   --bg-primary: #282828;
   --bg-secondary: #3c3836;
   --fg-primary: #ebdbb2;
   --fg-secondary: #d5c4a1;
+  --color-book: #c9a0d4;
+  --color-milestone: #f0d060;
+  --color-award: #d4a840;
 }
 
 /* config for the entire site */
@@ -118,7 +126,7 @@ a:hover {
 
 .book {
   font-family: "freemono-oblique";
-  color: #c9a0d4;
+  color: var(--color-book);
 }
 
 .book a {
@@ -127,7 +135,7 @@ a:hover {
 
 .fav-book {
   font-family: "freemono-oblique";
-  color: #c9a0d4;
+  color: var(--color-book);
 }
 
 .fav-book a {
@@ -136,17 +144,37 @@ a:hover {
 
 .milestone {
   font-family: "freemono-bold";
-  color: #f0d060;
+  color: var(--color-milestone);
 }
 
 .award {
   font-family: "freemono-bold";
-  color: #d4a840;
+  color: var(--color-award);
 }
 
 .clear {
     text-decoration: none;
     color: var(--fg-primary);
+}
+
+.quote p {
+  position: relative;
+}
+
+.qa {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  margin-top: 0.4rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.qa.show {
+  opacity: 1;
 }
 
 .quote {
@@ -259,24 +287,8 @@ a:hover {
 
 .theme-toggle-container {
   float: left;
-    margin-top: 13px;
-    margin-left: 12px;
-}
-
-#theme_select div {
-  display: flex;
-  margin-right: 1rem;
-  flex-direction: column;
-  align-items: center;
-}
-
-#theme_select label {
-  width: 25px;
-  height: 25px;
-  background: purple;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top: 13px;
+  margin-left: 12px;
 }
 
 #theme_select {
@@ -291,7 +303,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 0;
 }
 
 #theme_select input[type="radio"] {
@@ -304,12 +315,11 @@ a:hover {
   border-radius: 50%;
   cursor: pointer;
   transition: outline 0.15s ease;
-  border: 1px solid var(--fg-secondary);
 }
 
-label[for="theme-warm"]    { background: #39321a; }
-label[for="theme-pale"]    { background: #f2ece0; }
-label[for="theme-gruvbox"] { background: #282828; }
+#theme_select label[for="theme-warm"]    { background: #39321a; }
+#theme_select label[for="theme-pale"]    { background: #d4ccb8; }
+#theme_select label[for="theme-gruvbox"] { background: #282828; }
 
 #theme_select input[type="radio"]:checked + label {
   outline: 2px solid var(--fg-primary);
