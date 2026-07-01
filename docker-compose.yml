@@ -1,6 +1,5 @@
 services:
   kwakuaa:
-    version: '2026.6.3'
     build: .
     container_name: kwakuaa
     restart: unless-stopped
@@ -10,7 +9,7 @@ services:
     environment:
       - SITE_ADDRESS=${SITE_ADDRESS}
     volumes:
-      - caddy_data:/data        # persists Caddy's TLS certs across restarts
+      - caddy_data:/data
       - caddy_config:/config
 
 volumes:

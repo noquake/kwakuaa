@@ -105,11 +105,40 @@ function applyTheme(theme) {
   if (radio) radio.checked = true;
 }
 
+function injectComponents() {
+  const base = window.location.pathname.includes('/authors/') ? '../' : '';
+
+  const navbar = document.getElementById('site-navbar');
+  if (navbar) navbar.innerHTML = `<div class="navbar-container">
+    <li class="navbar-item"><a href="${base}index.html" class="clear">home</a></li>
+    <li class="navbar-item"><a href="${base}library.html" class="clear">library</a></li>
+    <li class="navbar-item"><a href="${base}resume.pdf" target="_blank" class="clear">resume</a></li>
+  </div>`;
+
+  const sidebar = document.getElementById('site-sidebar');
+  if (sidebar) sidebar.innerHTML = `<h2 class="sidebar-title">Links</h2>
+    <p><a class="clear" target="_blank" href="https://cal.com/kwaku">Meet</a></p>
+    <p><a class="clear" target="_blank" href="https://www.linkedin.com/in/kwakuaagyapong/">LinkedIn</a></p>
+    <p><a class="clear" target="_blank" href="https://gitlab.com/noquake">Gitlab</a></p>
+    <p><a class="clear" target="_blank" href="https://github.com/noquake">Github</a></p>`;
+
+  const footer = document.getElementById('site-footer');
+  if (footer) footer.innerHTML = `<div class="theme-toggle-container">
+    <div id="theme_select">
+      <div><input type="radio" name="theme" id="theme-warm" value="warm"><label for="theme-warm" title="Warm"></label></div>
+      <div><input type="radio" name="theme" id="theme-pale" value="pale"><label for="theme-pale" title="Pale"></label></div>
+      <div><input type="radio" name="theme" id="theme-gruvbox" value="gruvbox"><label for="theme-gruvbox" title="Gruvbox"></label></div>
+    </div>
+  </div>
+  <p><a class="clear" href="https://gitlab.com/noquake/kwakuaa">v2026.6.3</a></p>`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  injectComponents();
+
   const el = document.querySelector(".quote p");
   if (el) {
     const { q, s } = getQuote();
-
     const qtSpan = document.createElement("span");
     qtSpan.textContent = `"${q}"`;
     el.appendChild(qtSpan);
