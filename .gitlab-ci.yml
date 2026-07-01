@@ -1,6 +1,7 @@
 deploy:
   image: alpine:latest
   before_script:
+    - echo "PIPELINE_VERSION_CHECK_007"
     - apk add --no-cache openssh-client
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - cp "$VPS_SSH_KEY" ~/.ssh/id_deploy
