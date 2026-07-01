@@ -3,7 +3,7 @@ deploy:
   before_script:
     - apk add --no-cache openssh-client
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
-    - echo "$VPS_SSH_KEY" | tr -d '[:space:]' | base64 -d > ~/.ssh/id_deploy
+    - cp "$VPS_SSH_KEY" ~/.ssh/id_deploy
     - chmod 600 ~/.ssh/id_deploy
     - "ssh-keygen -y -f ~/.ssh/id_deploy && echo KEY_PARSES_OK || echo KEY_IS_BAD"
     - ssh-keyscan "$VPS_HOST" >> ~/.ssh/known_hosts || true
