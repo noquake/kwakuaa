@@ -2,11 +2,11 @@ deploy:
   image: alpine:latest
   before_script:
     - apk add --no-cache openssh-client
-    - 'echo "key var is: [$VPS_SSH_KEY]"'
+    - 'echo "host is: [$VPS_HOST] user is: [$VPS_USER]"'
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - cp "$VPS_SSH_KEY" ~/.ssh/id_deploy
     - chmod 600 ~/.ssh/id_deploy
-    - ssh-keyscan "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+    - ssh-keyscan "$VPS_HOST" >> ~/.ssh/known_hosts || true
   script:
     - ssh -i ~/.ssh/id_deploy "$VPS_USER@$VPS_HOST" "true"
   rules:
