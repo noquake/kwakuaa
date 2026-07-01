@@ -4,8 +4,8 @@ services:
     container_name: kwakuaa
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - "7080:80"
+      - "7443:443"
     environment:
       - SITE_ADDRESS=${SITE_ADDRESS}
     volumes:
