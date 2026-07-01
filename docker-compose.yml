@@ -1,5 +1,6 @@
 services:
   kwakuaa:
+    version: '2026.6.3'
     build: .
     container_name: kwakuaa
     restart: unless-stopped
