@@ -9,13 +9,42 @@
 	</head>
 
 	<body>
-		<nav class="navbar" id="site-navbar"></nav>
+		<nav class="navbar">
+			<div class="navbar-container">
+				<li class="navbar-item">
+					<a href="index.html" class="clear">home</a>
+				</li>
+				<li class="navbar-item">
+					<a href="resume.pdf" target="_blank" class="clear">resume</a>
+				</li>
+				<li class="navbar-item">
+					<a href="library.html" class="clear">library</a>
+				</li>
+			</div>
+		</nav>
 
 		<div class="quote">
 			<p></p>
 		</div>
 
-		<nav class="sidebar" id="site-sidebar"></nav>
+		<nav class="sidebar">
+			<h2 class="sidebar-title">Links</h2>
+			<p>
+				<a class="clear" target="_blank" href="mailto:kwakuagyapong478@gmail.com">Email</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://cal.com/kwaku">Cal.com</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://www.linkedin.com/in/kwakuaagyapong/">LinkedIn</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://gitlab.com/noquake">Gitlab</a>
+			</p>
+			<p>
+				<a class="clear" target="_blank" href="https://github.com/noquake">Github</a>
+			</p>
+		</nav>
 
 		<div class="content">
 			<h1>Library</h1>
@@ -115,6 +144,9 @@
 			{ name: "Jennette McCurdy",         slug: null,                        lastRead: 202605 },
 			{ name: "Uzodinma Iweala",          slug: null,                        lastRead: 202606 },
 			{ name: "Hernan Diaz",              slug: null,                        lastRead: 202606 },
+			{ name: "T. Kingfisher",            slug: null,                        lastRead: 202607 },
+			{ name: "Gary Stevenson",           slug: null,                        lastRead: 202608 },
+			{ name: "Ottessa Moshfegh",         slug: null,                        lastRead: 202608 },
 		];
 
 		function lastName(name) {
@@ -165,6 +197,24 @@
 		sortAndRender('alpha');
 		</script>
 
-		<div class="footer" id="site-footer"></div>
+		<div class="footer">
+			<div class="theme-toggle-container">
+				<div id="theme_select">
+					<div>
+						<input type="radio" name="theme" id="theme-warm" value="warm">
+						<label for="theme-warm" title="Warm"></label>
+					</div>
+					<div>
+						<input type="radio" name="theme" id="theme-pale" value="pale">
+						<label for="theme-pale" title="Pale"></label>
+					</div>
+<div>
+						<input type="radio" name="theme" id="theme-gruvbox" value="gruvbox">
+						<label for="theme-gruvbox" title="Gruvbox"></label>
+					</div>
+				</div>
+			</div>
+			<p><a class="clear" href="https://gitlab.com/noquake/kwakuaa">v2026.6.3</a></p>
+		</div>
 	</body>
 </html>

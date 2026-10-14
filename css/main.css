@@ -27,7 +27,6 @@
   --fg-secondary: #cec8b3;
   --color-book: #c9a0d4;
   --color-milestone: #f0d060;
-  --color-award: #d4a840;
 }
 
 [data-theme="pale"] {
@@ -37,7 +36,6 @@
   --fg-secondary: #3a3020;
   --color-book: #6b3a9a;
   --color-milestone: #7a6200;
-  --color-award: #6b4a00;
 }
 
 [data-theme="gruvbox"] {
@@ -47,7 +45,6 @@
   --fg-secondary: #d5c4a1;
   --color-book: #c9a0d4;
   --color-milestone: #f0d060;
-  --color-award: #d4a840;
 }
 
 * { font-family: "freemono"; }
@@ -124,7 +121,6 @@ a:hover {
 .fav-book   { font-family: "freemono-oblique"; color: var(--color-book); }
 .fav-book a { color: inherit; }
 .milestone  { font-family: "freemono-bold"; color: var(--color-milestone); }
-.award      { font-family: "freemono-bold"; color: var(--color-award); }
 
 .clear {
   text-decoration: none;
@@ -218,6 +214,12 @@ a:hover {
 }
 
 .content h3.current-year { font-family: "freemono-bold"; }
+
+.page-count {
+  font-family: "freemono";
+  font-size: 0.8em;
+  color: var(--fg-secondary);
+}
 
 .section-heading {
   display: flex;

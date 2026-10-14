@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Projects — systems, infrastructure, and research work by Kwaku A. Agyapong.">
+<title>Projects · Kwaku A. Agyapong</title>
+<style>
+  :root {
+    --bg: #FDFDFB;
+    --ink: #1B1F23;
+    --muted: #6A7178;
+    --rule: #E4E4DC;
+    --running: #0E7A4E;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+  }
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover, a:focus-visible { color: var(--running); }
+  a:focus-visible { outline: 2px solid var(--running); outline-offset: 3px; }
+
+  header.page { margin-bottom: 3.5rem; }
+  header.page h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; }
+  header.page p.lede { margin-top: 0.75rem; color: var(--muted); max-width: 38rem; }
+  nav.home { font-family: var(--mono); font-size: 0.8125rem; margin-bottom: 2.5rem; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    margin: 3.5rem 0 2rem;
+  }
+
+  article.project { margin-bottom: 3.25rem; }
+  article.project h2 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+
+  /* status readout — the "systemctl" line */
+  .status {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    margin: 0.5rem 0 1rem;
+    color: var(--muted);
+  }
+  .status .dot { font-size: 0.7rem; vertical-align: 1px; }
+  .status.running .dot, .status.running .state { color: var(--running); }
+  .status .state { font-weight: 600; }
+  .status .sep { padding: 0 0.5ch; color: var(--rule); }
+
+  .stack {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+  .stack strong { color: var(--ink); font-weight: 600; }
+
+  .pas p { margin-bottom: 0.85rem; }
+  .pas b.k {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--running);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .pas p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<nav class="home"><a href="/">← kwakuaa.com</a></nav>
+
+<header class="page">
+  <h1>Projects</h1>
+  <p class="lede">Most of what I've learned came from running things, not just building them. These are the systems I've built and maintain, and the research that came out of them. Some are finished; the ones marked <span style="color:var(--running); font-family:var(--mono); font-size:0.9em;">● running</span> are live and I'm responsible for keeping them that way.</p>
+</header>
+
+<!-- ============================================================ -->
+<div class="section-label">Systems &amp; Infrastructure</div>
+
+<article class="project" id="homelab">
+  <h2>Homelab — virtualization, storage, and backup infrastructure</h2>
+  <p class="status running"><span class="dot">●</span> <span class="state">running</span><span class="sep">|</span><!-- CONFIRM start date -->[YYYY] – present<span class="sep">|</span>self-directed</p>
+  <p class="stack"><strong>Stack:</strong> Proxmox VE · TrueNAS SCALE · ZFS · Proxmox Backup Server · Tailscale · MikroTik RouterOS · Docker · Linux</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>I wanted enterprise operations experience without an enterprise to practice on: virtualization, network-attached storage, segmented networking, secure remote access, and backups that are actually verified — not just assumed to work.</p>
+    <p><b class="k">Approach</b>I built it in nodes instead of one box. A custom AM4 server runs Proxmox VE as the hypervisor, with TrueNAS SCALE virtualized on top of it through HBA passthrough so the NAS gets direct control of its disks and ZFS can do its job honestly. A second, dedicated machine runs Proxmox Backup Server, because backups that live on the same hardware as the data aren't backups. Remote access goes through a Tailscale mesh with a subnet router instead of open ports, and an L3-capable switch handles segmentation on the wire.</p>
+    <p><b class="k">Solution</b>A multi-node lab that mirrors a small production environment: virtualized workloads, ZFS-backed storage, scheduled and tested backups, and zero ports forwarded to the internet. It also hosts real services with real users (see nyansape below), which keeps me honest — downtime here isn't hypothetical.</p>
+  </div>
+</article>
+
+<article class="project" id="nyansape">
+  <h2>nyansape — a self-hosted library system</h2>
+  <p class="status running"><span class="dot">●</span> <span class="state">running</span><span class="sep">|</span><!-- CONFIRM start date -->[YYYY] – present<span class="sep">|</span>self-directed</p>
+  <p class="stack"><strong>Stack:</strong> Koha ILS · MariaDB · Debian VPS · cron · mysqldump · Tailscale · Proxmox Backup Server</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>I'm interested in what it takes to run library infrastructure — catalog, circulation, patron records — as managed infrastructure, with Ghanaian institutions as the long-term use case. Reading about integrated library systems wasn't going to teach me their failure modes. Running one would.</p>
+    <p><b class="k">Approach</b>I deployed Koha, the open-source ILS, on a VPS: public catalog on one subdomain, staff interface on another. The part I treated as non-negotiable was the backup path. A nightly cron job dumps the database with <code>--single-transaction</code> for consistency, bundles the instance configuration, and ships it over Tailscale to the Proxmox Backup Server in my homelab — off-provider, on hardware I control, authenticated with a scoped API token rather than root credentials.</p>
+    <p><b class="k">Solution</b>A production library system with an automated, off-site, restorable backup pipeline. The name comes from <em>nyansapɔ</em>, the Akan wisdom-knot. Next step is migrating it off the VPS and onto the homelab entirely.</p>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<div class="section-label">Software</div>
+
+<article class="project" id="pathways">
+  <h2>Pathways — clinical RAG pipeline for a children's hospital</h2>
+  <p class="status"><span class="dot">○</span> <span class="state">completed</span><span class="sep">|</span>Sept 2025 – May 2026<span class="sep">|</span>City of Hartford Applied AI Center · with Ki Hwang</p>
+  <p class="stack"><strong>Stack:</strong> Docker (multi-container) · PostgreSQL + pgvector · Docling · SentenceTransformers · REST APIs · Keycloak · React · VPS deployment</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>Connecticut Children's Medical Center keeps its emergency treatment guidance — clinical pathways — across more than 2,000 pages of dense PDFs. In an emergency department, the time it takes a practitioner to find the right page is time that matters.</p>
+    <p><b class="k">Approach</b>My partner and I built a retrieval-augmented generation pipeline as our senior capstone, working directly with the hospital's CMIO and clinical informatics leadership through the Applied AI Center's inaugural Innovation Sandbox cohort. Docling handles ingestion of the clinical PDFs, embeddings are stored in PostgreSQL with pgvector, and the whole system runs as a multi-container Docker deployment behind REST APIs, with Keycloak for authentication and a React frontend. Consultations with technical teams at Seattle Children's and CDW shaped the hosting, reliability, and maintenance decisions — we were building for the people who would inherit the system, not for a demo.</p>
+    <p><b class="k">Solution</b>A deployed, queryable clinical decision-support prototype that turns a 2,000-page document set into direct answers with sourcing. It won Best Presentation &amp; Poster at the senior capstone showcase. Source: <a href="https://github.com/noquake/Pathways_Prototype">github.com/noquake/Pathways_Prototype</a>.</p>
+  </div>
+</article>
+
+<article class="project" id="stolen-tribe">
+  <h2>Transactional notification integration — Stolen Tribe Productions</h2>
+  <p class="status"><span class="dot">○</span> <span class="state">completed</span><span class="sep">|</span>Aug 2025 – Mar 2026<span class="sep">|</span>client work</p>
+  <p class="stack"><strong>Stack:</strong> REST APIs · Mailchimp automation</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>An independent production company needed transactional notifications — the kind of messages that have to arrive, tied to specific customer actions — without an engineering team to build or babysit them.</p>
+    <p><b class="k">Approach</b>I consulted on the design of a transactional notification API wired into Mailchimp's automation platform, scoping the integration to what the company could realistically maintain after I left.</p>
+    <p><b class="k">Solution</b>A working notification flow the company runs itself. Small project, but it taught me the discipline of building for a client's maintenance capacity rather than my own.</p>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<div class="section-label">Research &amp; Writing</div>
+
+<article class="project" id="cloud-responsibility">
+  <h2>Cloud responsibility and data sovereignty in emerging markets</h2>
+  <p class="status"><span class="dot">○</span> <span class="state">completed</span><span class="sep">|</span>Spring 2026<span class="sep">|</span>CPSC 395, Trinity College</p>
+  <p class="stack"><strong>Method:</strong> security research · case study analysis · primary-source interview · IEEE citation</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>The cloud shared responsibility model assumes a stable division of labor between provider and customer. The 2024 Change Healthcare breach and a wave of data-sovereignty decisions — including Ghana's rejection of a US health data deal — suggest that assumption is breaking down along regional lines.</p>
+    <p><b class="k">Approach</b>I argued the model will fragment into regional regimes within a decade, using Change Healthcare as the framing case study and grounding the emerging-markets analysis in a primary-source interview with the founder of a Ghanaian cloud company, plus my earlier work on Ghana's national identity systems.</p>
+    <p><b class="k">Solution</b>A term paper connecting cloud architecture to policy — the kind of systems question I want to keep working on. <!-- TODO: link PDF once hosted --></p>
+  </div>
+</article>
+
+<article class="project" id="eudi">
+  <h2>Revising national identity systems in Ghana: lessons from the EUDI framework</h2>
+  <p class="status"><span class="dot">○</span> <span class="state">completed</span><span class="sep">|</span>Dec 2025<span class="sep">|</span>CPSC 385, Trinity College</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>Ghana's national identity infrastructure carries real architectural and governance risks, and most proposals for it import assumptions from systems built elsewhere.</p>
+    <p><b class="k">Approach</b>I evaluated Ghana's identity systems against the EU Digital Identity (EUDI) framework to see which of its design lessons transfer and which don't.</p>
+    <p><b class="k">Solution</b>A research paper that became the foundation for my continuing work on infrastructure in Ghana — and a source I've since cited in later research. <!-- TODO: link PDF once hosted --></p>
+  </div>
+</article>
+
+<article class="project" id="thesis">
+  <h2>Dante en France — senior honors thesis</h2>
+  <p class="status"><span class="dot">○</span> <span class="state">completed</span><span class="sep">|</span>Fall 2025 – May 2026<span class="sep">|</span>advised by Walid Bouchakour</p>
+  <p class="stack"><strong>Method:</strong> French academic prose · LaTeX · intellectual history</p>
+  <div class="pas">
+    <p><b class="k">Problem</b>Dante's twentieth-century French reception runs through two very different readers — the philosopher Étienne Gilson and the poet Paul Claudel — and the humanist thread connecting them is easy to miss if you only read one.</p>
+    <p><b class="k">Approach</b>I wrote the thesis in French, tracing both readings of the <em>Divine Comedy</em>, and typeset it in LaTeX with full French typographic conventions.</p>
+    <p><b class="k">Solution</b>An honors thesis in Francophone Studies. It has nothing to do with computer science, which is exactly why it's here: the same discipline that structures a system structures an argument. <!-- TODO: link PDF once hosted --></p>
+  </div>
+</article>
+
+<footer>
+  Built and hosted by Kwaku A. · <a href="/">home</a>
+</footer>
+
+</body>
+</html>

@@ -130,7 +130,7 @@ function injectComponents() {
       <div><input type="radio" name="theme" id="theme-gruvbox" value="gruvbox"><label for="theme-gruvbox" title="Gruvbox"></label></div>
     </div>
   </div>
-  <p><a class="clear" href="https://gitlab.com/noquake/kwakuaa">v2026.6.3</a></p>`;
+  <p><a class="clear" href="https://gitlab.com/noquake/kwakuaa">v2026.10.1</a></p>`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -173,11 +173,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll(".content a[href]").forEach(link => {
-    link.target = "_blank";
+    if (link.hostname && link.hostname !== location.hostname) link.target = "_blank";
   });
 
   const currentYear = new Date().getFullYear().toString();
   document.querySelectorAll(".content h3").forEach(h3 => {
     if (h3.textContent.trim() === currentYear) h3.classList.add("current-year");
+  });
+
+  document.querySelectorAll(".content h3").forEach(h3 => {
+    let pages = 0;
+    for (let el = h3.nextElementSibling; el && el.tagName !== "H3"; el = el.nextElementSibling) {
+      el.querySelectorAll("[data-pages]").forEach(li => { pages += Number(li.dataset.pages); });
+    }
+    if (!pages) return;
+    const span = document.createElement("span");
+    span.className = "page-count";
+    span.textContent = ` · ${pages.toLocaleString()} pages${h3.classList.contains("current-year") ? "..." : ""}`;
+    h3.appendChild(span);
   });
 });
